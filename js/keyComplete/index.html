@@ -14,6 +14,9 @@
 	<footer></footer>
 
 	<script>
+
+		//1. 初始化数据
+		
 		var keys = {
 
 			// 0:[q,w,e,r,t,y,u,i,o,p],
@@ -47,6 +50,9 @@
 		if(hashInLocalStorage){
 			hash = hashInLocalStorage
 		}
+
+
+		//2. 生成键盘
 
 		//遍历 keys, 生成 kbd 标签
 
@@ -108,7 +114,9 @@
 			index = index+1
 		}
 
-		main.onkeypress = function(sj){
+		//3. 监听键盘
+
+		document.onkeypress = function(sj){
 			key = sj['key']  //q w e ...
 			website = hash[key]
 			console.log(website)
