@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+		}
+		#canvas{
+			background: pink;
+			height: 100vh;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div id="canvas"></div>
+
+	<script>
+		var div = document.getElementById('canvas')
+
+		// 按下去鼠标
+		document.onmousedown = function(a){
+			var x = a.clientX
+			var y = a.clientY
+			var divA = document.createElement('div')
+			divA.style = "width: 6px; height: 6px;" + "background: black; border-radius: 3px;" + "position: absolute; left: "+(x-3) + "px;" + "top: "+(y-3)+"px;" 
+			div.appendChild(divA)
+		}
+
+		// 动鼠标
+		document.onmousemove = function(y){
+			// console.log(y)
+		}
+
+		// 松开鼠标
+		document.onmouseup = function(z){
+			console.log(1)
+		}
+
+	</script>
+</body>
+</html>
