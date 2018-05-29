@@ -1,5 +1,6 @@
 var yyy = document.getElementById('xxx');
 		var context = yyy.getContext('2d');
+		var lineWidth = 5
 
 		autoSetCanvasSize(yyy)
 
@@ -15,6 +16,20 @@ var yyy = document.getElementById('xxx');
 			eraserEnabled = true
 			eraser.classList.add('active')
 			pen.classList.remove('active')
+		}
+
+		clear.onclick = function(){
+			context.clearRect(0, 0, yyy.width, yyy.height);
+		}
+		download.onclick = function(){
+			var url = yyy.toDataURL("image/png")
+			console.log(url)
+			var a = document.createElement('a')
+			document.body.appendChild(a)
+			a.href = url
+			a.download = '我的画儿'
+			a.target = '_blank'
+			a.click()
 		}
 
 		red.onclick = function(){
@@ -37,6 +52,14 @@ var yyy = document.getElementById('xxx');
 			blue.classList.add('active')
 			red.classList.remove('active')
 			green.classList.remove('active')
+		}
+
+
+		thin.onclick = function(){
+			lineWidth = 5
+		}
+		thick.onclick = function(){
+			lineWidth = 10
 		}
 
 		/******/
@@ -70,7 +93,7 @@ var yyy = document.getElementById('xxx');
 			context.beginPath();
 			// context.strokeStyle = 'black'
 			context.moveTo(x1,y1) //起点
-			context.lineWidth = 5
+			context.lineWidth = lineWidth
 			context.lineTo(x2,y2) // 终点
 			context.stroke()
 			context.closePath()
