@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+ <html lang="zh-cn">
+ <head>
+ 	<meta charset="utf-8">
+ 	<title>binbin-task2</title>
+ </head>
+ <body>
+ 	<h3>学生分数从高到低</h3>
+   	<ul id="aqi-list">
+ 	<!--  
+     <li>第一名：小红（样例），99</li>
+       <li>第二名：小花（样例），80</li> -->
+   	</ul>
+ 
+ 	<script type="text/javascript">
+ 
+ 		var aqiData = [
+ 		  ["小红", 99],
+ 		  ["小花", 80],
+ 		  ["小明", 59],
+ 	 ];
+ 
+ 	(function () {
+ 	  /*
+ 	  在注释下方编写代码
+ 	  遍历读取aqiData中各个学生的数据
+ 	  将成绩大于50的显示到aqi-list的列表中
+ 	  */
+ 	  
+ 	  	var cont=document.querySelector("#aqi-list");
+ 	  	var list=aqiData.filter(function(item){
+ 	  		return(item[1]>=50);
+ 	  	});
+ 	  	 list.sort(function(a,b){
+ 	  	 	return b[1]-a[1];
+ 	  	 });
+ 		 list.forEach(
+ 		 	function(item,index,array){
+ 			 
+ 				var newnode=document.createElement("li");
+ 				newnode.innerHTML=array[index][0]+":"+array[index][1];
+ 				cont.appendChild(newnode);
+ 			  
+ 			}
+ 		);
+ 
+ 
+ 
+ 	})();
+ 
+ </script>
+ 
+ </body>
+ </html>
