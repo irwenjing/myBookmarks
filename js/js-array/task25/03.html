@@ -8,12 +8,12 @@
 	
 	<script type="text/javascript">
 		var a = [1,2,3,4,5,6,7,8,9]
-		var b = a.filter(function(v,i){
-			return v%2 ===1;
-		})
-		console.log(b)
-		var sum = b.reduce(function(x,y){console.log(x+y);return x+y;},0);
-		// console.log(sum)
+		a.reduce(function(sum,n){
+			if(n%2 === 1){
+				sum = sum + n;
+			}
+			return sum;
+		},0)
 	</script>
 </body>
 </html>
